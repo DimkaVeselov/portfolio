@@ -1,0 +1,124 @@
+.burger {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	height: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
+	cursor: pointer;
+	&:hover {
+		span {
+			width: 44px;
+		}
+	}
+	span {
+		display: block;
+		width: 35px;
+		height: 3px;
+		background: $main-color;
+		transition: all 0.25s;
+		&.long {
+			width: 44px;
+		}
+	}
+}
+
+.menu {
+	position: fixed;
+	top: 0;
+	left: -100%;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.5s;
+	&.active {
+		left: 0;
+		visibility: visible;
+		opacity: 1;
+	}
+	&__block {
+		position: relative;
+		width: 25%;
+		height: 100%;
+		padding-top: 140px;
+		padding-left: 40px;
+		background: $main-color;
+		transition: all 0.5s;
+		z-index: 10;
+	}
+	&__close {
+		position: absolute;
+		top: 25px;
+		right: 25px;
+		cursor: pointer;
+		transition: all 0.5s;
+		&:hover {
+			transform: scale(1.1) rotate(90deg);
+		}
+	}
+	&__list {
+		list-style-type: none;
+		padding-left: 35px;
+	}
+	&__link {
+		position: relative;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 36px;
+		transition: all 0.8s;
+		margin-bottom: 15px;
+		&:hover {
+			transform: scale(1.1) translateX(1vw);
+			&:before {
+				background: rgba(0, 0, 0, 1);
+			}
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 10px;
+			left: -35px;
+			width: 15px;
+			height: 15px;
+			border-radius: 100%;
+			border: 1px solid #000000;
+			background: rgba(0, 0, 0, 0);
+			cursor: pointer;
+			transition: all 0.75s;
+		}
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
+	}
+	&__social {
+		position: absolute;
+		bottom: 50px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 125px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		a {
+			transition: all 0.5s;
+			&:hover {
+				transform: scale(1.1) translateY(-0.35vw);
+			}
+		}
+	}
+	&__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #fff;
+		opacity: 0.35;
+		z-index: 5;
+	}
+}

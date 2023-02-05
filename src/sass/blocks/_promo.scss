@@ -1,0 +1,47 @@
+.promo {
+	min-height: 100vh;
+	position: relative;
+	padding-top: 205px;
+	background-color: black;
+	transform: translate3d(0);
+	background-image: url(https://image.ibb.co/ee15GF/stars_front.png),
+		url(https://image.ibb.co/jWn6Ov/stars_back.png);
+	background-size: cover;
+	background-position: 200% 0, 0 0, 0 0;
+	background-repeat: no-repeat, repeat-x, repeat-x;
+	animation: animate-background linear 150s infinite;
+	object-fit: cover;
+	.title {
+		color: #fff;
+		margin-top: 10px;
+	}
+	&__subtitle {
+		position: relative;
+		@include before_circle;
+		z-index: 2;
+		padding-left: 10px;
+	}
+	&__btns {
+		margin-top: 25px;
+		width: 275px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__link {
+		text-decoration: none;
+		color: #fff;
+		font-weight: bold;
+		transition: all 0.5s;
+		&:hover {
+			color: #fff;
+			transform: scale(1.15);
+			text-decoration: none;
+		}
+	}
+}
+
+@keyframes animate-background {
+	from { background-position: -200% 40px, 0 0, 0 0;  }
+	to { background-position: 100% 40px, 1000px 0, 500px 0; }
+}
